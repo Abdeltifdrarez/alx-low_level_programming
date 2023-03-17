@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - prints the last digit of the random
- * number stored in the variable n
+ * main - prints the alphabet in lowercase,
+ * followed by a new line
  * Return: Always 0 (Success)
  */
 int main(void)
@@ -13,6 +13,6 @@ int main(void)
 	{
 		putchar(ch);
 	}
-	putchar('\n');	
+	putchar('\n');
 	return (0);
 }
