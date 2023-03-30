@@ -1,35 +1,34 @@
 #include "main.h"
-
 /**
- * cap_string - capitalizes all words of a string
- * @str: the string to change the first letter of a word in uppercase
- *
- * Return: capitalizes letters
+ * c_2_upper - fuction capitalize the strings.
+ * @letter: is the string to capitalize.
+ */
+void c_2_upper(char *letter)
+{
+	if (*letter >= 'a' && *letter <= 'z')
+		*letter -= 32;
+}
+/**
+ * cap_string - function that capitalizes all words of a string.
+ * @str: is the string to capitalize.
+ * Return: str.
  */
 char *cap_string(char *str)
 {
-  int i;
-  int j;
-  char c[] = {44, 59, 46, 33, 63, 34, 40, 41, 123, 125, 32, 10, 9};
+	int i, j;
+	char separators[] = " ,;.!?(){}\"\t\n";
 
-  i = 0;
-
-  while (str[i] != '\0')
-    {
-      if (i == 0 && str[i] >= 97 && str[i] <= 122)
-	{
-	  str[i] = str[i] - 32;
-	}
-      j = 0;
-      while (c[j] != '\0')
-	{
-	  if (c[j] == str[i] && (str[i + 1] >= 97 && str[i + 1] <= 122))
-	    {
-	      str[i + 1] = str[i + 1] - 32;
-	    }
-	  j++;
-	}
-      i++;
-    }
-  return (str);
+	for (i = 0; str[i] != '\0'; i++)
+		for (j = 0; separators[j] != '\0'; j++)
+			if (i == 0)
+			{
+				c_2_upper(&str[i]);
+				break;
+			}
+			else if (str[i - 1] == separators[j])
+			{
+				c_2_upper(&str[i]);
+				break;
+			}
+	return (str);
 }
